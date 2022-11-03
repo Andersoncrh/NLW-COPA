@@ -10,7 +10,7 @@ body{
   background-color: #121214;
   background-image: url(./assets/bg.svg);
   background-position-x: center;
-  background-position-y: -715px;
+  background-position-y: -200px;
 }
 body *{
   font-family: 'Roboto', sans-serif;
@@ -31,7 +31,7 @@ header{
 .card{  
   background: #1D1C19;
   align-items: center;
-  border-bottom: 2px solid #F7DD43;
+  border-bottom: 2px solid #9A1032;
   border-radius: 6px;
   padding: 32px 23px;
   text-align: center;
@@ -43,12 +43,12 @@ header{
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #746615;
+  border: 1px solid #9A1032;
   border-radius: 6px;
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 53px;
-  color: #F7DD43;
+  color: #9A1032;
 }
 .card h2 span{
   color: #E1E1E6;
@@ -68,7 +68,7 @@ header{
 }
 .card ul li + li{
   padding-top: 24px;
-  border-top: 1px solid #323238;
+  border-top: 1px solid #9a103334;
 }
 .card ul li strong{
   font-weight: 900;
