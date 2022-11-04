@@ -3,25 +3,67 @@
   padding : 0;  
   box-sizing: border-box;
 }
+:root{
+  --card-color-primary: #9A1032;
+  --card-color-secondary: #9a103234;
+  --card-bg-color: #1C191D;
+  --header-logo: url(./assets/wc-logo-rose.svg);
+  --bg: url(./assets/bg-rose.svg);
+  
+}
 ul{
   list-style: none;
 }
-body{
-  background-color: #121214;
-  background-image: url(./assets/bg.svg);
-  background-position-x: center;
-  background-position-y: -200px;
-}
+
 body *{
   font-family: 'Roboto', sans-serif;
 }
+body.blue{
+  --card-color-primary: #338AF3;
+  --card-color-secondary: #338AF334;
+  --card-bg-color: #202024;
+  --header-logo: url(./assets/wc-logo-blue.svg);
+   --bg: url(./assets/bg-blue.svg)
+}
+body.rose{
+  --card-color-primary: #9A1032;
+  --card-color-secondary: #9a103234;
+  --card-bg-color: #1C191D;
+  --header-logo: url(./assets/wc-logo-rose.svg);
+   --bg: url(./assets/bg-rose.svg)
+}
+body.yellow{
+  --card-color-primary: #B2A659;
+  --card-color-secondary: #B2A65934;
+  --card-bg-color: #1D1C19;
+  --header-logo: url(./assets/wc-logo-rose.svg);
+   --bg: url(./assets/bg-yellow.svg)
+}
+body.green{
+  --card-color-primary: #35875D;
+  --card-color-secondary: #35875D34;
+  --card-bg-color: #1A1F1B;
+  --header-logo: url(./assets/wc-logo-green.svg);
+   --bg: url(./assets/bg-green.svg)
+}
+body{
+  background-color: #121214;
+  background-image: var(--bg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #app{
   width: fit-content;
-  margin: 52px auto;
+  margin: auto;
+  padding-top: 52px;
 }
 header{
   margin-bottom: 63px;
   text-align: center;
+}
+#logo::before{
+  content: var(--header-logo);
 }
 #cards{
   display: flex;
@@ -31,7 +73,7 @@ header{
 .card{  
   background: #1D1C19;
   align-items: center;
-  border-bottom: 2px solid #9A1032;
+  border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
   padding: 32px 23px;
   text-align: center;
@@ -43,12 +85,12 @@ header{
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #9A1032;
+  border: 1px solid var(--card-color-secondary);
   border-radius: 6px;
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 53px;
-  color: #9A1032;
+  color: var(--card-color-primary);
 }
 .card h2 span{
   color: #E1E1E6;
@@ -68,7 +110,7 @@ header{
 }
 .card ul li + li{
   padding-top: 24px;
-  border-top: 1px solid #9a103334;
+  border-top: 1px solid var(--card-color-secondary);
 }
 .card ul li strong{
   font-weight: 900;
@@ -76,4 +118,34 @@ header{
   line-height: 125%;
   text-align: center;
   color: #E1E1E6;
+}
+.card ul li strong:hover,
+.card ul li img:hover,
+.card h2:hover{
+  transform: scale(1.1);
+}
+.card ul li strong,
+.card ul li img,
+.card h2:hover{
+  transform: transform 0.3s;
+}
+.card{
+  animation: appear 0.7s;
+}
+
+@keyframes appear{
+  0%{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }  
+}
+@media(min-width: 700px){
+  #cards{
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
