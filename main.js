@@ -1,75 +1,3 @@
-let bg = document.querySelector('body')
-function inWords(num) {
-  var a = ['','one','two','three','four', 'five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
-var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
-  if ((num = num.toString()).length > 9) return "overflow"
-  n = ("000000000" + num)
-    .substr(-9)
-    .match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/)
-  if (!n) return
-  var str = ""
-  str +=
-    n[1] != 0
-      ? (a[Number(n[1])] || b[n[1][0]] + " " + a[n[1][1]]) + "crore "
-      : ""
-  str +=
-    n[2] != 0
-      ? (a[Number(n[2])] || b[n[2][0]] + " " + a[n[2][1]]) + "lakh "
-      : ""
-  str +=
-    n[3] != 0
-      ? (a[Number(n[3])] || b[n[3][0]] + " " + a[n[3][1]]) + "thousand "
-      : ""
-  str +=
-    n[4] != 0
-      ? (a[Number(n[4])] || b[n[4][0]] + " " + a[n[4][1]]) + "hundred "
-      : ""
-  str +=
-    n[5] != 0
-      ? (str != "" ? "and " : "") +
-        (a[Number(n[5])] || b[n[5][0]] + a[n[5][1]]) 
-      : ""
-  return str
-}
-function changeColor(color){
-  bg.classList.replace(bg.classList[0],color) 
-}
-function changeOrder(option){
-  bg.classList.replace(bg.classList[1],option)
-  gameCards.innerHTML = createCardBy(bg.classList[1])
-  createGameBy(bg.classList[1])
-}
-function createGame(player1, day, time, stadium, player2, option) {
-  document.querySelector("[data-name=" + option + "]").innerHTML += `
-
-          <li>
-            <img src="./assets/flags/icon=${player1}.svg" alt="Bandeira do ${player1}">
-            <strong>${day}<br>${time}<br>${stadium}</strong>
-            <img src="./assets/flags/icon=${player2}.svg" alt="Bandeira do ${player2}">
-          </li>
-  `
-}
-let delay = -0.3
-
-function createCard(date, day, option) {
-  delay = delay + 0.1
-  if (!day)
-    return `
-      <div class="card"  style="animation-delay: ${delay}s">
-        <h2>${date} </h2>
-        <ul data-name="${option}">
-        </ul>
-      </div>
-  `
-  else
-    return `
-      <div class="card" class="${option}" style="animation-delay: ${delay}s">
-        <h2>${date} <span>${day}</span></h2>
-        <ul data-name="${option}">
-        </ul>
-      </div>
-  `
-}
 let matches = [
   {
     teams: ["qatar", "ecuador"],
@@ -456,6 +384,108 @@ let matches = [
     stadium: "lusail",
   },
 ]
+function inWords(num) {
+  var a = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+  ]
+  var b = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ]
+  if ((num = num.toString()).length > 9) return "overflow"
+  n = ("000000000" + num)
+    .substr(-9)
+    .match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/)
+  if (!n) return
+  var str = ""
+  str +=
+    n[1] != 0
+      ? (a[Number(n[1])] || b[n[1][0]] + " " + a[n[1][1]]) + "crore "
+      : ""
+  str +=
+    n[2] != 0
+      ? (a[Number(n[2])] || b[n[2][0]] + " " + a[n[2][1]]) + "lakh "
+      : ""
+  str +=
+    n[3] != 0
+      ? (a[Number(n[3])] || b[n[3][0]] + " " + a[n[3][1]]) + "thousand "
+      : ""
+  str +=
+    n[4] != 0
+      ? (a[Number(n[4])] || b[n[4][0]] + " " + a[n[4][1]]) + "hundred "
+      : ""
+  str +=
+    n[5] != 0
+      ? (str != "" ? "and " : "") + (a[Number(n[5])] || b[n[5][0]] + a[n[5][1]])
+      : ""
+  return str
+}
+function changeColor(color) {
+  bg.classList.replace(bg.classList[0], color)
+}
+function changeOrder(option) {
+  bg.classList.replace(bg.classList[1], option)
+  gameCards.innerHTML = createCardBy(bg.classList[1])
+  createGameBy(bg.classList[1])
+}
+function createGame(player1, day, time, stadium, player2, option) {
+  document.querySelector("[data-name=" + option + "]").innerHTML += `
+
+          <li>
+            <img src="./assets/flags/icon=${player1}.svg" alt="Bandeira do ${player1}">
+            <strong>${day}<br>${time}<br>${stadium}</strong>
+            <img src="./assets/flags/icon=${player2}.svg" alt="Bandeira do ${player2}">
+          </li>
+  `
+}
+
+function createCard(date, day, option) {
+  delay = delay + 0.1
+  if (!day)
+    return `
+      <div class="card"  style="animation-delay: ${delay}s">
+        <h2>${date} </h2>
+        <ul data-name="${option}">
+        </ul>
+      </div>
+  `
+  else
+    return `
+      <div class="card" class="${option}" style="animation-delay: ${delay}s">
+        <h2>${date} <span>${day}</span></h2>
+        <ul data-name="${option}">
+        </ul>
+      </div>
+  `
+}
+
 function createCardBy(option) {
   let opt = []
   let cardsByOption = ""
@@ -477,10 +507,14 @@ function createCardBy(option) {
         )
         opt.push(i[option])
       } else if (option == "stadium") {
-        cardsByOption += createCard(i[option].toUpperCase(),"",i[option])
+        cardsByOption += createCard(i[option].toUpperCase(), "", i[option])
         opt.push(i[option])
       }
-    } else if (option == "teams" &&!opt.includes(i[option][0]) &&!opt.includes(i[option][1])) {
+    } else if (
+      option == "teams" &&
+      !opt.includes(i[option][0]) &&
+      !opt.includes(i[option][1])
+    ) {
       cardsByOption +=
         createCard(i[option][0].toUpperCase(), "", i[option][0]) +
         createCard(i[option][1].toUpperCase(), "", i[option][1])
@@ -495,18 +529,55 @@ function createGameBy(option) {
   for (let i of matches) {
     if (option != "teams") {
       if (option == "group") {
-        createGame(i.teams[0], i.date, i.time, i.stadium.toUpperCase(), i.teams[1], i.group)
-      }else if(option == "date"){
-        createGame(i.teams[0],i.date,  'Group '+i.group.toUpperCase(), i.stadium.toUpperCase(), i.teams[1], inWords(i.date.substring(0,2)))
-    }else if(option == "stadium"){
-        createGame(i.teams[0],i.date+' '+i.weekDay.toUpperCase(),  'Group '+i.group.toUpperCase(), i.stadium.toUpperCase(), i.teams[1], i.stadium)
-    }
-    } else{
-      createGame(i.teams[0], i.date, i.time, i.stadium.toUpperCase(), i.teams[1], i.teams[0])
-      createGame(i.teams[0], i.date, i.time, i.stadium.toUpperCase(), i.teams[1], i.teams[1])
+        createGame(
+          i.teams[0],
+          i.date,
+          i.time,
+          i.stadium.toUpperCase(),
+          i.teams[1],
+          i.group
+        )
+      } else if (option == "date") {
+        createGame(
+          i.teams[0],
+          "Group " + i.group.toUpperCase(),
+          i.weekDay.toUpperCase(),
+          i.stadium.toUpperCase(),
+          i.teams[1],
+          inWords(i.date.substring(0, 2))
+        )
+      } else if (option == "stadium") {
+        createGame(
+          i.teams[0],
+          i.date + " " + i.weekDay.toUpperCase(),
+          "Group " + i.group.toUpperCase(),
+          i.stadium.toUpperCase(),
+          i.teams[1],
+          i.stadium
+        )
+      }
+    } else {
+      createGame(
+        i.teams[0],
+        i.date,
+        i.time,
+        i.stadium.toUpperCase(),
+        i.teams[1],
+        i.teams[0]
+      )
+      createGame(
+        i.teams[0],
+        i.date,
+        i.time,
+        i.stadium.toUpperCase(),
+        i.teams[1],
+        i.teams[1]
+      )
     }
   }
 }
+let delay = -0.3
+let bg = document.querySelector("body")
 let gameCards = document.querySelector("#cards")
 gameCards.innerHTML = createCardBy(bg.classList[1])
 createGameBy(bg.classList[1])
