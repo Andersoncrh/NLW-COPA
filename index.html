@@ -10,10 +10,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
 <title>Calendário da Copa - NLW Copa</title>
 </head>
-<body class="green">
+<body class="rose" id="group">
   
   <div id="app">    
-    <header id="logo"></header>
+    <header id="logo">
+      <form>
+        <label for="theme">Choose a Theme:</label>
+        <select name="themes" id="cars" onchange="changeColor(this.value)">
+          <option value="rose">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="yellow">Yellow</option>
+          
+        </select>
+      </form>
+      <nav class="menu">
+          <a id="disabled">ORDER BY:</a>
+          <a>GROUP</a>
+          <a>DAY </a>
+          <a>TEAM </a>
+          <a>STADIUM </a>
+      </div>
+    </header>
     <main id="cards"></main>
   </div>
   

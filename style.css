@@ -36,7 +36,7 @@ body.yellow{
   --card-color-primary: #B2A659;
   --card-color-secondary: #B2A65934;
   --card-bg-color: #1D1C19;
-  --header-logo: url(./assets/wc-logo-rose.svg);
+  --header-logo: url(./assets/wc-logo-yellow.svg);
    --bg: url(./assets/bg-yellow.svg)
 }
 body.green{
@@ -51,7 +51,8 @@ body{
   background-image: var(--bg);
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  background-attachment: fixed;
 }
 #app{
   width: fit-content;
@@ -62,6 +63,33 @@ header{
   margin-bottom: 63px;
   text-align: center;
 }
+.menu {
+  background-color: var(--card-bg-color);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--card-color-primary);
+    flex-wrap: wrap;
+}
+.menu a {  
+  background-color: var(--card-bg-color);
+  border-radius: 2px;  
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.menu a:hover {
+    background-color: white;
+    border-radius: 5px;
+    color: #261118;
+}
+#disabled {
+   pointer-events: none;
+}
+
 #logo::before{
   content: var(--header-logo);
 }
@@ -69,9 +97,12 @@ header{
   display: flex;
   flex-direction: column;
   gap: 32px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card{  
-  background: #1D1C19;
+  background: var(--card-bg-color);
   align-items: center;
   border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
@@ -114,10 +145,13 @@ header{
 }
 .card ul li strong{
   font-weight: 900;
-  font-size: 36px;
+  font-size: 15px;
   line-height: 125%;
   text-align: center;
   color: #E1E1E6;
+}
+.card ul li img{
+  width: 60px;
 }
 .card ul li strong:hover,
 .card ul li img:hover,
@@ -142,10 +176,10 @@ header{
     opacity: 1;
   }  
 }
-@media(min-width: 700px){
+@media(min-width: 400px){
   #cards{
-    max-width: 670px;
+    max-width: 1050px;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
   }
 }
