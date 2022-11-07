@@ -9,14 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
 <title>Calendário da Copa - NLW Copa</title>
+<link rel="icon" type="image/x-icon" href="./assets/world-cup.png">
 </head>
-<body class="rose" id="group">
+<body class="rose stadium">
   
   <div id="app">    
     <header id="logo">
       <form>
         <label for="theme">Choose a Theme:</label>
-        <select name="themes" id="cars" onchange="changeColor(this.value)">
+        <select name="theme" id="cars" onchange="changeColor(this.value)">
           <option value="rose">Red</option>
           <option value="blue">Blue</option>
           <option value="green">Green</option>
@@ -26,10 +27,10 @@
       </form>
       <nav class="menu">
           <a id="disabled">ORDER BY:</a>
-          <a>GROUP</a>
-          <a>DAY </a>
-          <a>TEAM </a>
-          <a>STADIUM </a>
+          <a onclick="changeOrder('date')">DAY </a>
+          <a onclick="changeOrder('group')">GROUP</a>
+          <a onclick="changeOrder('teams')">TEAM</a>
+          <a onclick="changeOrder('stadium')">STADIUM</a>
       </div>
     </header>
     <main id="cards"></main>
