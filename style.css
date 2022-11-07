@@ -35,14 +35,14 @@ body.rose{
 body.yellow{
   --card-color-primary: #B2A659;
   --card-color-secondary: #B2A65934;
-  --card-bg-color: #1D1C19;
+  --card-bg-color: #131614;
   --header-logo: url(./assets/wc-logo-yellow.svg);
    --bg: url(./assets/bg-yellow.svg)
 }
 body.green{
   --card-color-primary: #35875D;
   --card-color-secondary: #35875D34;
-  --card-bg-color: #1A1F1B;
+  --card-bg-color: #1D1C19;
   --header-logo: url(./assets/wc-logo-green.svg);
    --bg: url(./assets/bg-green.svg)
 }

@@ -32,7 +32,7 @@ var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','
   return str
 }
 function changeColor(color){
-  bg.className = color
+  bg.classList.replace(bg.classList[0],color) 
 }
 function changeOrder(option){
   bg.classList.replace(bg.classList[1],option)
